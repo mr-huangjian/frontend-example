@@ -28,7 +28,9 @@ module.exports = {
      * https://blog.csdn.net/feiying0canglang/article/details/126560143
      */
     devServer: {
-        port: 2020,
+        open: true,
+        host: 'localhost',
+        port: 8090,
     },
 
     /**
