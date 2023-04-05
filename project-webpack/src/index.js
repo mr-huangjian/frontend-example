@@ -3,6 +3,9 @@ import $ from 'jquery'
 import './css/index.css'
 import './css/index.less'
 
+import pic from './img/pic.png'
+$('.box').attr('src', pic)
+
 $(function() {
     /**
      * odd 奇数

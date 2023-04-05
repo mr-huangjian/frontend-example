@@ -50,6 +50,13 @@ module.exports = {
              */
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
             { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+
+            /**
+             * limit 指定图片大小，单位字节byte
+             * 只有≤limit大小的图片，才会被转为base64格式图片
+             * 单个loader可以用字符串，多个loader用数组
+             */
+            { test: /\.jpg|png|gif$/, use: 'url-loader?limit=22229' },
         ],
     }
 }
