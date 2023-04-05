@@ -36,5 +36,20 @@ module.exports = {
     /**
      * 加载三方插件
      */
-    plugins: [ htmlWebpackPlugin ]
+    plugins: [ htmlWebpackPlugin ],
+
+    /**
+     * 加载 loader
+     */
+    module: {
+        rules: [
+            /**
+             * 先交给 css-loader 加载器处理，然后将处理结果
+             * 交给 style-loader 加载器处理，然后将处理结果
+             * 交给 webpack 合并到 bunlde.js。
+             */
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
+        ],
+    }
 }
