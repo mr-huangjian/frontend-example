@@ -3,7 +3,7 @@ import $ from 'jquery'
 import './css/index.css'
 import './css/index.less'
 
-import pic from './img/pic.png'
+import pic from '@/img/pic.png'
 $('.box').attr('src', pic)
 
 $(function() {

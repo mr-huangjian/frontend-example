@@ -18,6 +18,22 @@ module.exports = {
      */
     mode: 'development',
 
+    // TODO 如何定位前端网页的线上问题？
+    /**
+     * devtool: 'eval-source-map',
+     * 加上可保证：运行时报错的行数与源代码的行数保持一致，运行的代码也是源代码
+     * 
+     * devtool: 'nosources-source-map', 
+     * 只定位行数，不暴露源码，此时根本看不到源码
+     * 
+     * devtool: 'source-map',
+     * 显示行号和源码，https://www.jianshu.com/p/2b1b1a48ff0a
+     * 
+     * 开发调试时推荐使用 devtool: 'eval-source-map'
+     * 在生产环境推荐使用 devtool: 'nosources-source-map' 或 直接关闭 source-map，防止源码泄露
+     */
+    devtool: 'source-map',
+
     /**
      * webpack-dev-server 配置
      * https://blog.csdn.net/feiying0canglang/article/details/126560143
@@ -66,5 +82,11 @@ module.exports = {
              */
             { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
         ],
+    },
+
+    resolve: {
+        alias: {
+            '@': path.join(__dirname, './src/')
+        }
     }
 }
