@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/vue/2.7.14/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!---- `v-model:` 是数据双向绑定(data <-> view ) --->
+        <!---- `v-bind:` 可以简写成 `:`，是数据单向绑定(data -> view) --->
+        <!---- `v-on:` 可以简写成 `@` --->
+        <!-- $event 固定写法，传递原生事件 -->
+
+        <p>{{ username }}</p>
+        <input type="text" v-bind:placeholder="placeholder" v-model="content">
+        <span>v-model 您输入的内容是：<strong>{{ content }}</strong></span>
+
+        <hr>
+        <input type="text" v-bind:placeholder="placeholder" v-model.lazy="content">
+        <span>v-model.lazy(失去焦点) 您输入的内容是：<strong>{{ content }}</strong></span>
+
+        <hr>
+        <input type="text" v-bind:value="bindcontent">
+        <span>v-bind 您输入的内容是：<strong>{{ bindcontent }}</strong></span>
+
+        <hr>
+        <button @click="say">打招呼</button>
+        <button @click="send(content, $event)">发消息</button>
+
+        <hr>
+        <span>{{ count }}</span>
+        <button @click="increase">+1</button>
+        <button @click="decrease">-1</button>
+
+        <hr>
+        <a href="http://www.baidu.com" @click.prevent="openUrl">跳转到百度，阻止默认行为</a>
+        
+        <hr>
+        <input type="text" @keyup.enter="submit" placeholder="回车以提交">
+
+        <hr>
+        <input v-model.number="n1"> + <input v-model.number="n2"> = <span>{{ n1 + n2 }}</span>
+
+        
+
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'huangjian',
+                placeholder: '请输入用户名',
+                content: '',
+                bindcontent: 'some text',
+                count: 0,
+                n1: 1,
+                n2: 2,
+            },
+            methods: {
+                say() {
+                    alert('hi')
+                },
+                send(message, ev) {
+                    console.log(ev.target.innerHTML)
+                    alert(message)
+                },
+                increase(ev) {
+                    this.count += 1
+
+                    if (this.count % 2 == 0) {
+                        ev.target.style.backgroundColor = 'red'
+                    } else {
+                        ev.target.style.backgroundColor = ''
+                    }
+                },
+                decrease() {
+                    this.count -= 1
+                },
+                openUrl() {
+                    // 在新页面打开网页
+                    window.open('https://cn.bing.com')
+                    // 在当前页面跳转到网页，可以前进后退
+                    // window.location.href = 'https://cn.bing.com'
+                    // 替换当前页面，不可以前进后退
+                    // window.location.replace('https://cn.bing.com')
+                },
+                submit() {
+                    alert('点击了提交')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
