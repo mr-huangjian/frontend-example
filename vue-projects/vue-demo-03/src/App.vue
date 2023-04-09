@@ -1,7 +1,11 @@
 <template>
-    <div>
-        <h1>{{ title }}</h1>
-        <Left></Left>
+    <div data-name="App.vue">
+        <GlobalHeader></GlobalHeader>
+        <!-- 注意： -->
+        <!-- v-bind:prop="statement" -->
+        <!-- prop="stringValue" -->
+        <Left info="enjoy" :count="200"></Left>
+        <span>{{ title }}</span>
     </div>
 </template>
 
@@ -20,6 +24,6 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
 </style>

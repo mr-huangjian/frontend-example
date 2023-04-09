@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import GlobalHeader from '@/components/GlobalHeader.vue'
+Vue.component('GlobalHeader', GlobalHeader)
+
 Vue.config.productionTip = false
 
 new Vue({
