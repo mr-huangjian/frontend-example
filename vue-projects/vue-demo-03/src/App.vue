@@ -5,7 +5,7 @@
         <!-- v-bind:prop="statement" -->
         <!-- prop="stringValue" -->
         <Left info="enjoy" :count="200"></Left>
-        <span>{{ title }}</span>
+        <span ref="titleRef">{{ title }}</span>
     </div>
 </template>
 
@@ -20,7 +20,17 @@ export default {
     },
     components: {
         Left,
-    }
+    },
+    mounted() {
+        console.log(this.$refs)
+        /**
+         * this.$nextTick(emptyCallback)
+         * DOM下次重绘完成后回调
+         */
+        this.$nextTick(() => {
+            this.$refs.titleRef.style.color = 'red'
+        })
+    },
 }
 </script>
 
