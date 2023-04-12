@@ -27,5 +27,4 @@ vue2.x中兄弟组件通过EventBus进行数据共享
 
 ---
 
-<!-- TODO -->
 [Vue项目中支持可选链（链判断运算符）操作](https://blog.csdn.net/qq_39490750/article/details/129836098)

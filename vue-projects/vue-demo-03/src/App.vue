@@ -6,6 +6,7 @@
         <!-- prop="stringValue" -->
         <Left info="enjoy" :count="200"></Left>
         <span ref="titleRef">{{ title }}</span>
+        <p>可选链：{{ obj.a?.b }}</p>
     </div>
 </template>
 
@@ -15,7 +16,8 @@ import Left from "@/components/Left.vue"
 export default {
     data() {
         return {
-            title: 'App.Vue'
+            title: 'App.Vue',
+            obj: {}
         }
     },
     components: {
@@ -27,7 +29,7 @@ export default {
          * this.$nextTick(emptyCallback)
          * DOM下次重绘完成后回调
          */
-        this.$nextTick(() => {
+        this.$nextTick?.(() => {
             this.$refs.titleRef.style.color = 'red'
         })
     },
