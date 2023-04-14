@@ -1,4 +1,7 @@
 
+> 本模板项目，默认支持可选链语法！不用在按下面的步骤操作了！
+
+
 # JS optional-chaining 可选链
 
 1. 安装 `@babel/plugin-proposal-optional-chaining` 插件
