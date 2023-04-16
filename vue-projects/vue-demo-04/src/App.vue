@@ -1,28 +1,76 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="container">
+      <!-- include="Left" 表示仅缓存Left组件 -->
+      <!-- include="Left,Right" 格式 -->
+      <!-- include 和 exinclude 不能同时使用 -->
+      <keep-alive include="MyLeft">
+        <component :is="cmpt"></component>
+      </keep-alive>
+    </div>
+    <button @click="showLeft">切换到Left组件</button>
+    <button @click="showRight">切换到Right组件</button>
+
+    <Content>
+      <template v-slot:defalut>
+        <p>具体内容...</p>
+        <p>hhhha</p>
+      </template>
+
+      <template #header="scope">
+        <h1>这是头部</h1>
+        <p>这是头部描述!</p>
+        <p>{{ scope }}</p>
+      </template>
+
+      <!-- 
+        解构
+      <template #header="{ msg }">
+        <h1>这是头部</h1>
+        <p>这是头部描述!</p>
+        <p>{{ msg }}</p>
+      </template>
+      -->
+
+
+    </Content>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Left from "@/components/Left.vue"
+import Right from "@/components/Right.vue"
+import Content from "@/components/Content.vue"
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      cmpt: 'Left'
+    }
+  },
   components: {
-    HelloWorld
+    Left,
+    Right,
+    Content,
+  },
+  methods: {
+    showLeft() {
+      this.cmpt = 'Left'
+    },
+    showRight() {
+      this.cmpt = 'Right'
+    }
   }
 }
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+button {
+  padding: 5px 10px;
+  margin: 10px;
+}
+#container {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
