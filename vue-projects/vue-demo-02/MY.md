@@ -11,6 +11,10 @@ npm i -g @vue/cli@4.5.13
 ```
 
 ```bash
+% vue create {ProjectName}
+```
+
+```bash
 Vue CLI v5.0.8
 ? Please pick a preset: 
   Default ([Vue 3] babel, eslint) 
@@ -47,4 +51,4 @@ selection, and <enter> to proceed)
 ```
 
 
-百度网盘-Vue2.0-18.vue-cli - 把项目跑起来看效果
+百度网盘-Vue2-day3-18.vue-cli - 把项目跑起来看效果
