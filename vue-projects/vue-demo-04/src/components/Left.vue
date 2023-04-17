@@ -3,6 +3,7 @@
         <h1>Left</h1>
         <span>{{ count }}</span>
         <button @click="add">+1</button>
+        <button @click="count -= 1">-1</button>
     </div>
 </template>
 
@@ -30,7 +31,7 @@ export default {
     },
     activated() {
         console.log(`Left Component activated!`);
-    }
+    },
 }
 </script>
 

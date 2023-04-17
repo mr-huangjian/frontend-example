@@ -12,6 +12,7 @@
     <button @click="showRight">切换到Right组件</button>
 
     <Content>
+      <!-- v-slot:{name} 只能使用在 <template> 或 Vue 组件上 -->
       <template v-slot:defalut>
         <p>具体内容...</p>
         <p>hhhha</p>
@@ -34,6 +35,10 @@
 
 
     </Content>
+
+    <p v-color v-bgc="'yellow'">局部自定义指令，第一段</p>
+    <p v-color="'blue'">局部自定义指令，第二段</p>
+
   </div>
 </template>
 
@@ -59,6 +64,19 @@ export default {
     },
     showRight() {
       this.cmpt = 'Right'
+    }
+  },
+  directives: {
+    // color: {
+    //   bind(el, binding) {
+    //     el.style.color = binding.value || 'red'
+    //   },
+    //   update(el, binding) {
+    //     el.style.color = binding.value
+    //   },
+    // },
+    color(el, binding) {
+      el.style.color = binding.value || 'red'
     }
   }
 }
