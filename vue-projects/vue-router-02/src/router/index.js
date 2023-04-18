@@ -9,18 +9,10 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
-    {
-      path: '/home',
-      component: Home
-    },
-    {
-      path: '/movie',
-      component: Movie
-    },
-    {
-      path: '/about',
-      component: About
-    }
+    { path: '/', component: Home },
+    { path: '/home', component: Home },
+    { path: '/movie', component: Movie },
+    { path: '/about', component: About }
   ]
 })
 
