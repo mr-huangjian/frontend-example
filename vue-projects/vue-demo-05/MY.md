@@ -18,7 +18,7 @@ invert selection, and <enter> to proceed)
 - [no-console](https://www.eslint.com.cn/docs/rules/)
 - [comma-dangle](https://www.eslint.com.cn/docs/rules/comma-dangle)
 
-下载安装扩展
+下载安装扩展(Vue2-day6-27)
 
 - ESLint
 - Prettier - Code formatter

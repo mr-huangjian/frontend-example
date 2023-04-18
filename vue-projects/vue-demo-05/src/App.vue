@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'App',
@@ -14,7 +14,9 @@ export default {
     HelloWorld
   },
   created() {
-
+    this.$http.get('/get?id=1').then(data => {
+      console.log(data)
+    })
   }
 }
 </script>
