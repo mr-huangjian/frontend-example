@@ -5,7 +5,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'MainComponent',
+  created () {
+    localStorage.removeItem('token')
+  }
+}
 </script>
 
 <style></style>

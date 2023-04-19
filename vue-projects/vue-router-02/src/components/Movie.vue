@@ -2,7 +2,7 @@
   <div class="movie-container">
     <!-- this.$route 是路由的“参数对象” -->
     <!-- this.$router 是路由的“导航对象” -->
-    <h3>Movie 组件 --- {{ $route.params.mid }} --- {{ mid }}</h3>
+    <h3>Movie 组件 --- {{ $route.params.mid }} --- mid:{{ mid }}</h3>
     <button @click="showThis">打印 this</button>
     <button @click="goback">后退</button>
     <!-- 在行内使用编程式导航跳转的时候，this 必须要省略，否则会报错！ -->
@@ -16,6 +16,10 @@ export default {
   name: 'MovieComponent',
   // 接收 props 数据
   props: ['mid'],
+  created () {
+    console.log('MovieComponent created!')
+    console.log(`mid: ${this.mid}`)
+  },
   methods: {
     showThis () {
       console.log(this)
