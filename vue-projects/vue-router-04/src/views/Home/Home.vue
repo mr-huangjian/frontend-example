@@ -109,8 +109,26 @@
 </template>
 
 <script>
+import { getArticleListAPI } from '@/api/articleAPI'
+
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  data () {
+    return {
+      page: 1,
+      limit: 10,
+      list: []
+    }
+  },
+  created () {
+    this.getlist()
+  },
+  methods: {
+    async getlist () {
+      const { data: res } = await getArticleListAPI(this.page, this.limit)
+      this.list = res
+    }
+  }
 }
 </script>
 

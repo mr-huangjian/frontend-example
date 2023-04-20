@@ -8,3 +8,9 @@
 ```sh
 yarn add vant@latest-v2
 ```
+
+https://www.escook.cn/articles
+
+<!-- TODO -->
+
+如何在 VSCode 正确配置 eslint 和 prettier，项目、扩展程序、编辑器
