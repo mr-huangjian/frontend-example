@@ -1,24 +1,10 @@
-# vue-router-04
+# 黑马头条
 
-## Project setup
-```
-yarn install
-```
+[Vant](https://vant-contrib.gitee.io/vant/v2/#/zh-CN/quickstart)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+不使用“方式一. 自动按需引入组件 (推荐)”，开发阶段使用“方式三，全局导入”。
+打包时不打入 Vant 任何代码，而使用“基于 externals 配置 CDN 加速”。
 
-### Compiles and minifies for production
+```sh
+yarn add vant@latest-v2
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
