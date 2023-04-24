@@ -9,3 +9,10 @@ module.exports = {
     },
     devtool: "source-map", //防止干扰源文件
 };
+
+
+/**
+ webpack和webpack serve --open的区别
+ https://blog.csdn.net/weixin_48975022/article/details/130188911
+ */
+ 
