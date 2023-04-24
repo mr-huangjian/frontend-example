@@ -105,7 +105,7 @@ http.interceptors.request = async (request) => {
     request.body = Object.isExtensible(body) ? Object.assign({}, body, {}) : body
 
     request.key = 'value'
-    // network request log & collect
+    // network request log
     return request
 }
 
