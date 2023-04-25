@@ -1,3 +1,12 @@
+# 创建本项目
+
+```sh
+npm init vite-app vue3-proj # 创建项目
+npm i less -D # 启用 less
+```
+
+[`CSS  :root`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:root)
+
 # Vue 数据共享的方法
 
 - 父传子组件共享数据：`v-bind:prop="data"` 即 `:prop="data"`
