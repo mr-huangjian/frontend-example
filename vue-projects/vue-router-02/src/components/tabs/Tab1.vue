@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Tab1'
+  name: 'Tab1Component'
 }
 </script>
 
