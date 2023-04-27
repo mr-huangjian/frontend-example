@@ -25,4 +25,43 @@ export default class InterceptorManager {
             }
         });
     }
+
+    // payload chain ok
+    static transfer0(promise, chain) {
+        while (chain.length) {
+            promise = promise.then(chain.shift(), chain.shift());
+        }
+        return promise;
+    }
+
+    static transfer2(payload, chain) {
+        let promise = Promise.resolve(payload);
+        while (chain.length) {
+            promise = promise.then(chain.shift(), chain.shift());
+        }
+        return promise;
+    }
+
+    /**
+     * 如果继续下去，则调 resolve，否则调 reject
+     * @param {*} payload 
+     * @param {*} chain 
+     * @returns 
+     */
+    static transfer(payload, chain) {
+        return new Promise((resolve, reject) => {
+            let promise = Promise.resolve(payload);
+            let i = 0;
+
+            function next(promise) {
+                promise.then($ => {
+                    return chain.unshift()($)
+                }).catch($ => {
+                    return chain.unshift()($)
+                })
+            }
+            next(promise)
+        })
+    }
+
 }
